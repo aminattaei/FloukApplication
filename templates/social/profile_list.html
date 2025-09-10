@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Home Page {% endblock title %}
+
+<style>
+    image{
+        width:400px;
+    }
+</style>
+
+{% block content %}
+<h1>Profile List</h1>
+
+    {% if profiles %}
+        {% for profile in profiles %}
+            <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="{% static "DEFAULT_PROFILE_PICTURE.png" %}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ profile.user.username }}</h5>
+                    <p class="card-text"><a href="{% url "profile_detail"profile.user.id %}">@{{ profile.user.username|lower }}</a></p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated: {{ profile.date_modified }}</small></p>
+                </div>
+                </div>
+            </div>
+            </div>
+            
+        {% endfor %}
+        {% else %}
+            <p>Profile List Is Empty!</p>
+
+
+    {% endif %}
+{% endblock content %}

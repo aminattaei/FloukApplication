@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Home Page {% endblock title %}
+
+
+
+{% block content %}
+
+<style>
+    .btn1{
+        width: 11rem;
+        height: 4rem;
+        border: 5px solid rgb(67, 108, 202);
+        border-radius: 6rem;
+        text-align: left;
+        background-image: url({% static "favicon.png" %});
+        background-size: 80px;
+        background-position: right;
+        background-repeat: no-repeat;
+        text-transform: uppercase;
+    }
+
+    .btn1:hover{
+        background-color: rgb(5, 17, 85);
+        color: white;
+        cursor: pointer;
+        border-radius: 1rem;
+        background-size: 90px;
+    }
+
+
+</style>
+
+<button class="btn1">send flouk</button>
+
+
+
+{% endblock content %}
